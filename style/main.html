@@ -1,0 +1,119 @@
+
+    		<!--/span-->
+<div class="span8">
+	<div id='preview' align='center'></div>
+  <div class="accordion" id="accordion2">
+     <div class="accordion-group">
+        <div class="accordion-heading">
+           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+              <div class="add_link">Добавить пост</div>
+           </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">
+          <div class="accordion-inner">
+			  <? if(check_login()) : ?>
+			 <!--form-->			 
+               <div id="formbox"> 
+    		   <form id="add" action="add.php" method="post" enctype="multipart/form-data">
+		       <div class="textarea">
+			   <textarea id="text" class="span13" rows="2" maxlength="100" name="text" style="background: #272822"></textarea>
+			   <div id="chars">100</div>
+		 </div>
+		 <div class="add_link">
+
+<div class="pull-right">
+	
+    <input id="imageUpload" name="filename" class="" size="20" type="file" />
+
+</div>
+
+		 </div>
+		 <button class="btn btn-info" type="submit" id="submit" name="upload"> Предложить пост</button>
+		 </form>
+        </div>
+        <!--/form-->
+        <? else : ?>
+        <div align="center">
+        <? echo display_msg2("Сообщение", "alert", "Авторизуйтесь, что бы иметь возможность добавить пост"); ?>
+        </div>
+        <? endif;?>     
+       </div>
+      </div>
+    </div>
+</div>
+
+<?php while($post = mysql_fetch_assoc($query)) : ?> <!-- View all post -->            
+    			<div class="well">	
+    	<h2 class="num_post_position">#<a href="?v=<?=$post['id_post']?>"><?=$post['id_post']?></a></h2>					
+<!-- code -->
+<div class="highlight"><pre><code class="javascript"><span class="c1">// Get post</span>
+<span class="kd">if</span> <span class="nx">(</span><span class="nb">$_GET['<span class="s1">id</span>']</span> <span class="o">==</span> '<span class="s1"><?=$post['id_post']?></span>'<span class="nx">)</span> <span class="p">{</span>
+    <span class="kd">echo</span> <span class="nb">$image</span><span class="p">;</span>
+    <span class="c1">// Get Detales</span>
+    <span class="kd">if</span> <span class="nx">(</span><span class="nb"><span class="kd">isset</span><span class="nx">(</span><span class="nb">$comments</span><span class="s1">,</span><span class="nb">$share</span><span class="s1">,</span><span class="nb">$like</span><span class="nx">)</span><span class="nx">)</span><span class="p">{</span>
+        <span class="kd">echo</span> <span class="nb">$comments</span><span class="s1">.</span><span class="nb">$share</span><span class="s1">.</span><span class="nb">$like</span><span class="p">;</span>
+</code></pre></div>
+<!-- /code -->
+<p><?=$post['text_post']?></p>
+          <hr />
+          <div align="center" >
+    					<img class="thumbnail" src="<?=$post['img_mini']?>">
+            </div>
+            <hr />
+<!-- Иконка комментариев -->  
+<p>    
+<span class="label" >   
+<i class="icon-comment"></i> Комментарии
+</span>  
+  
+<!-- Иконка share -->
+<span class="label" >
+<i class=" icon-share"></i>
+</span>
+
+<!-- Время -->
+<span class="label" >
+<?=$post['date_post']?> 
+</span>
+
+<!-- Иконка лайков -->
+<span class="label" >
+<a href="#" class="love white_link" id="<?=$post['id_post']?>"> 
+<i class="icon-heart"></i> 
+<span align="left"><?=$post['like_post']?></span>  
+</a>  
+</span>
+</p>
+
+<hr />
+<!-- code -->
+<div class="highlight"><pre><code class="javascript"><span class="c1">// end</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<!-- /code -->
+
+
+    			</div>
+    			<hr />
+<?php endwhile; ?>
+
+
+<div class="pagination" align="center">
+    <ul>
+    <li><a href="#">Обратно</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">Туда</a></li>
+    </ul>
+    </div>
+    			<!--/row-->
+    			<!--/row-->
+    		</div>
+    		<!--/span-->
+        
+        
+    	</div>
+

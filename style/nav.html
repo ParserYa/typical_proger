@@ -1,0 +1,143 @@
+
+<div class="back">
+	   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Типичный программист</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.php">Главная</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Другое <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Что то</a></li>
+                  <li><a href="#">Что то 2</a></li>
+                  <li><a href="#">Что то 3</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Название</li>
+                  <li><a href="#">Что то там</a></li>
+                  <li><a href="#">Что то там 2</a></li>
+                </ul>
+              </li>
+            </ul>
+    <script type="text/javascript">
+	$('document').ready(function()
+	{
+		$('#auth').ajaxForm( {
+			target: '#preview', 
+			success: function() { 			
+				$('#auth').resetForm();
+			} 
+		}); 				
+	});
+    </script>
+    <? if(!check_login()) : ?>
+    <div id="formbox"> 
+<ul class="nav pull-right">
+                  	<li class="divider-vertical"></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown">Вход <strong class="caret"></strong></a>
+						<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+							<form id="auth" action="login.php" method="post" class="navbar-form" enctype="multipart/form-data">
+								<input style="margin-bottom: 15px;" type="text" name="login" placeholder="Login">
+								<input style="margin-bottom: 15px;" type="password" name="pass" placeholder="Password">
+								<input class="btn btn-primary btn-block" type="submit" id="submit" name="go" value="Войти">
+								<div class="sign_up_fix"></div>
+							</form>
+						</div>
+					</li>
+				</ul>
+            </div>
+            <? else : ?>
+<ul class="nav pull-right">
+             <ul class="nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Привет <?=$_SESSION['name_user']?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+				  <li class="nav-header">Профиль</li>
+                  <li><a href="#">About</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Остальное</li>
+                  <li><a href="?exit">Выход</a></li>
+                </ul>
+              </li>
+            </ul>
+				</ul>
+           <? endif; ?>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+    
+
+     <!-- Begin page content -->
+      <div class="container">
+    
+    <div class="container-fluid">
+      
+    	<div class="row-fluid ">
+       
+    		<div class="span3">
+        <img class="logo thumbnail" src="img/logo.png">
+          <div class="glass_block">
+    			<div class="well sidebar-nav sidebar_o">
+    				<ul class="nav nav-list">
+    					<li class="nav-header">
+    						'Навигация';
+    					</li>
+    					<li class="active">
+    						<a href="index.php">Главная</a>
+    					</li>
+    					<li class="active">
+    						<a href="#">Блог</a>
+    					</li>
+    					<li class="active">
+    						<a href="?about">О нас</a>
+    					</li>
+    				</ul>
+    			</div>
+          
+
+          <div class="well sidebar-nav sidebar_o">
+    				<ul class="nav nav-list">
+    					<li class="nav-header">
+    						'Ссылки';
+    					</li>
+    					<li class="active">
+    						<a target="_blank" href="https://vk.com/typical_proger">Группа в vk.com</a>
+    					</li>
+    					<li class="active">
+    						<a target="_blank" href="http://tproger.ru/gen/">Создать эдвайс</a>
+    					</li>
+    					<li class="active">
+    						<a target="_blank" href="http://tproger.ru/quotation/">Создать цитату</a>
+    					</li>
+    				</ul>
+    			</div>
+          
+          <div class="well sidebar-nav sidebar_o">
+    				<ul class="nav nav-list">
+    					<li class="nav-header">
+    						'Подвал';
+    					</li>
+    					<div align="center">
+    						| <a target="_blank" href="#">Контакты</a> |  					
+    					
+    						<a target="_blank" href="#">About</a> |
+    					
+    						| <a target="_blank" href="#">Правила</a> |
+    					
+    					<hr />
+    					<p>© Company 2013</p>
+    					</div>
+    				</ul>
+    			</div>   
+          </div>
+    			<!--/.well -->
+    		</div>
