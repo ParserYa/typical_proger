@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 $db = "typical_proger";
 $host = "localhost";
 $user = "root";
-$pass = "Nhfvfljk3000";
+$pass = "";
 
 $charset = 'utf-8';
 
