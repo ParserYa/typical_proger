@@ -1,5 +1,6 @@
 <?php
 require_once "./bootstrap.php";
+include('config.php');
 
 include(CLASS_UPLOAD);
 
